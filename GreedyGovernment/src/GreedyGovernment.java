@@ -53,9 +53,10 @@ public class GreedyGovernment
 			System.out.println();
 			avg += cost;
 		}
+		double initialTotalCost = avg;
 		System.out.println("\ninitial average: " + avg/finalpaths.size());
 		
-		int maxAvg = 0;
+		double maxAvg = 0;
 		Set<String> keyset = edges.keySet(); 
 		
 //		System.out.println("weight:");
@@ -71,7 +72,7 @@ public class GreedyGovernment
 
 		for (String string : keyset) 
 		{
-			int cost = 0;
+			double cost = initialTotalCost;
 			int p = Integer.parseInt(string.substring(0, string.indexOf(',')));
 			int q = Integer.parseInt(string.substring(string.indexOf(',') + 1));
 			weight[p][q] += tollHike;
@@ -80,7 +81,8 @@ public class GreedyGovernment
 			{
 				for (int i = 1; i < arrayList.size(); i++) 
 				{
-					cost += weight[arrayList.get(i-1)][arrayList.get(i)];
+					if(arrayList.get(i-1) == p && arrayList.get(i) == q)
+						cost += tollHike;
 				}
 			}
 			weight[p][q] -= tollHike;
