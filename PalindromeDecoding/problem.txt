@@ -1,0 +1,85 @@
+Problem Statement
+    	You are given a String code and int[]s position and length. code contains an encoded string which you must decode using the following method. Step through the elements of position in order, and for each element i, take the substring of length length[i] at position position[i]. Insert the reverse of that substring before position position[i]+length[i], thereby creating a palindromic substring. All positions are 0-based. Return the decoded String.
+ 
+Definition
+    	
+Class:	PalindromeDecoding
+Method:	decode
+Parameters:	String, int[], int[]
+Returns:	String
+Method signature:	String decode(String code, int[] position, int[] length)
+(be sure your method is public)
+    
+ 
+Constraints
+-	code will contain between 1 and 10 characters, inclusive.
+-	code will contain only digits ('0'-'9') and letters ('a'-'z', 'A'-'Z').
+-	position will contain between 0 and 10 elements, inclusive.
+-	length will contain the same number of elements as position.
+-	position and length will always refer to a valid substring in the (partially decoded) string code.
+-	Each element of length will be positive.
+-	The return value will have at most 1000 characters.
+ 
+Examples
+0)	
+    	
+
+"ab"
+
+{0}
+
+{2}
+
+Returns: "abba"
+
+The decoding step selects the whole string and appends it in reversed form.
+1)	
+    	
+
+"Misip"
+
+{2,3,1,7}
+
+{1,1,2,2}
+
+Returns: "Mississippi"
+
+The decoding steps are: "Misip" -> "Missip" -> "Misssip" -> "Mississip" -> "Mississippi"
+2)	
+    	
+
+"XY"
+
+{0, 0, 0, 0}
+
+{2, 4, 8, 16}
+
+Returns: "XYYXXYYXXYYXXYYXXYYXXYYXXYYXXYYX"
+
+In this example the length of the string doubles in each decoding step.
+3)	
+    	
+
+"TC206"
+
+{1,2,5}
+
+{1,1,1}
+
+Returns: "TCCC2006"
+
+4)	
+    	
+
+"nodecoding"
+
+{}
+
+{}
+
+Returns: "nodecoding"
+
+This problem statement is the exclusive and proprietary property of TopCoder, Inc. Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited. (c)2010, TopCoder, Inc. All rights reserved.
+This problem was used for:
+       Single Round Match 324 Round 1 - Division I, Level One
+       Single Round Match 324 Round 1 - Division II, Level Two
